@@ -503,9 +503,9 @@ plot(fit2)
 
 ![](lab05-wrangling-gam_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
-![](q5b)
+![](q5b.png)
 
-![](q5c)
+![](q5c.png)
 
 **The GAM model is the better fit, since its adjusted R squared value
 (0.0245), while low, is better than that of the linear model (0.005783).
