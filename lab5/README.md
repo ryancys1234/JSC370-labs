@@ -437,6 +437,8 @@ ggplot(med_ldt, aes(x=atm.press_ID, y=temp_ID)) +
 
 ![](lab05-wrangling-gam_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
+(q5a.png)
+
 ``` r
 fit1 <- lm(data=med_ldt, temp_ID ~ wind.sp_ID)
 summary(fit1)
@@ -500,6 +502,9 @@ plot(fit2)
 ```
 
 ![](lab05-wrangling-gam_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
+(q5b)
+
+(q5c)
 
 **The GAM model is the better fit, since its adjusted R squared value
 (0.0245), while low, is better than that of the linear model (0.005783).
