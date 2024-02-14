@@ -411,7 +411,7 @@ query:</p>
 <p>The parameters passed to the query are documented <a href="https://www.ncbi.nlm.nih.gov/books/NBK25499/">here</a>.</p>
 <pre class="r"><code>library(httr)
 query_ids &lt;- GET(
-  url   = &quot;https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgiL&quot;,
+  url   = &quot;https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi&quot;,
   query = list(db = &quot;pubmed&quot;, term = &quot;covid19 toronto&quot;, retmax = 300)
 )
 
@@ -435,10 +435,10 @@ lines of code:</p>
 ids &lt;- as.character(ids)
 
 # Find all the ids 
-ids &lt;- stringr::str_extract_all(ids, &quot;PATTERN&quot;)[[1]]
+ids &lt;- stringr::str_extract_all(ids, &quot;&lt;Id&gt;[0-9]+&lt;/Id&gt;&quot;)[[1]]
 
 # Remove all the leading and trailing &lt;Id&gt; &lt;/Id&gt;. Make use of &quot;|&quot;
-ids &lt;- stringr::str_remove_all(ids, &quot;PATTERN&quot;)</code></pre>
+ids &lt;- stringr::str_remove_all(ids, &quot;&lt;Id&gt;|&lt;/Id&gt;&quot;)</code></pre>
 <p>With the ids in hand, we can now try to get the abstracts of the
 papers. As before, we will need to coerce the contents (results) to a
 list using:</p>
@@ -459,9 +459,12 @@ formula in R). For example, the text <code>&quot;123,456&quot;</code> is replace
 with <code>&quot;123%2C456&quot;</code>. If you don’t want that behavior, you
 would need to do the following <code>I(&quot;123,456&quot;)</code>.</p>
 <pre class="r"><code>publications &lt;- GET(
-  url   = &quot;BASELINE URL HERE&quot;,
+  url   = &quot;https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi&quot;,
   query = list(
-    &quot;PARAMETERS OF THE QUERY&quot;
+    db = &quot;pubmed&quot;,
+    id = paste(ids, collapse = &#39;,&#39;),
+    retmax = 300,
+    rettype = &quot;abstract&quot;
     )
 )
 
