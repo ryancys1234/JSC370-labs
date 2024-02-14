@@ -411,8 +411,8 @@ query:</p>
 <p>The parameters passed to the query are documented <a href="https://www.ncbi.nlm.nih.gov/books/NBK25499/">here</a>.</p>
 <pre class="r"><code>library(httr)
 query_ids &lt;- GET(
-  url   = &quot;BASELINE URL&quot;,
-  query = list(&quot;QUERY PARAMETERS&quot;)
+  url   = &quot;https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgiL&quot;,
+  query = list(db = &quot;pubmed&quot;, term = &quot;covid19 toronto&quot;, retmax = 300)
 )
 
 # Extracting the content of the response of GET
