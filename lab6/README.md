@@ -1,1 +1,1 @@
-View lab 6 [here](https://cdn.jsdelivr.net/gh/ryancys1234/JSC370-labs/lab6/06-labs)
+View lab 6 [here](https://cdn.jsdelivr.net/gh/ryancys1234/JSC370-labs/lab6/06-lab.html)
